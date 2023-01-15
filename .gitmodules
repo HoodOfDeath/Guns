@@ -1,0 +1,3 @@
+[submodule "docs/style guide"]
+	path = docs/style guide
+	url = git@github.com:HoodOfDeath/ue5-style-guide.git
