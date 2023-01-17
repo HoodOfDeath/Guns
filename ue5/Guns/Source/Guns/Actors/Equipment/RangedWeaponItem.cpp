@@ -23,14 +23,25 @@ ARangedWeaponItem::ARangedWeaponItem()
 void ARangedWeaponItem::BeginPlay()
 {
 	Super::BeginPlay();
+
+	TriggerGroup->OnTriggerGoesOff.AddUObject(this, &ARangedWeaponItem::TriggerGoesOff);
+}
+
+void ARangedWeaponItem::BeginDestroy()
+{
+	TriggerGroup->OnTriggerGoesOff.RemoveAll(this);
+	
+	Super::BeginDestroy();
 }
 
 void ARangedWeaponItem::StartFire()
 {
+	TriggerGroup->StartFire();
 }
 
 void ARangedWeaponItem::StopFire()
 {
+	TriggerGroup->StopFire();
 }
 
 void ARangedWeaponItem::StartAiming()
@@ -43,4 +54,17 @@ void ARangedWeaponItem::StopAiming()
 
 void ARangedWeaponItem::Reload()
 {
+}
+
+void ARangedWeaponItem::TriggerGoesOff()
+{
+	if (!WeaponFeed->CanShoot())
+	{
+		return;
+	}
+
+	FVector ShotStartPosition = WeaponBarrel->GetComponentLocation();
+	FVector ShotDirection = WeaponBarrel->GetComponentRotation().Vector();
+	WeaponBarrel->Shot(ShotStartPosition, ShotDirection);
+	WeaponFeed->ConsumeAmmo();
 }

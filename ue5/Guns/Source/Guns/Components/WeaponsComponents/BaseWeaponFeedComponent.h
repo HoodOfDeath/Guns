@@ -14,5 +14,8 @@ class GUNS_API UBaseWeaponFeedComponent : public UActorComponent
 
 public:
 	UBaseWeaponFeedComponent();
-		
+
+	virtual bool CanShoot();
+
+	virtual void ConsumeAmmo();
 };

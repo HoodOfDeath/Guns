@@ -14,5 +14,7 @@ class GUNS_API UBaseWeaponBarrelComponent : public USceneComponent
 
 public:
 	UBaseWeaponBarrelComponent();
+
+	virtual void Shot(FVector ShotStart, FVector ShotDirection);
 	
 };

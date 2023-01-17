@@ -6,3 +6,13 @@
 UBaseWeaponFeedComponent::UBaseWeaponFeedComponent()
 {
 }
+
+bool UBaseWeaponFeedComponent::CanShoot()
+{
+	return true;
+}
+
+void UBaseWeaponFeedComponent::ConsumeAmmo()
+{
+}
+

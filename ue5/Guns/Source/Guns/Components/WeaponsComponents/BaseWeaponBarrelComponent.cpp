@@ -7,3 +7,8 @@ UBaseWeaponBarrelComponent::UBaseWeaponBarrelComponent()
 {
 }
 
+void UBaseWeaponBarrelComponent::Shot(FVector ShotStart, FVector ShotDirection)
+{
+	DrawDebugLine(GetWorld(), ShotStart, ShotStart + ShotDirection, FColor::Red, true, 2);
+}
+

@@ -6,3 +6,11 @@
 UBaseWeaponTriggerGroupComponent::UBaseWeaponTriggerGroupComponent()
 {
 }
+
+void UBaseWeaponTriggerGroupComponent::StartFire()
+{
+}
+
+void UBaseWeaponTriggerGroupComponent::StopFire()
+{
+}

@@ -20,6 +20,7 @@ public:
 	ARangedWeaponItem();
 
 	virtual void BeginPlay() override;
+	virtual void BeginDestroy() override;
 
 	void StartFire();
 	void StopFire();
@@ -33,6 +34,7 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	USkeletalMeshComponent* WeaponMesh;
 	
+	//TODO: Add TSubclassOf for barrel,feed,trigger to spawn needed subclass
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UBaseWeaponBarrelComponent* WeaponBarrel;
 
@@ -41,4 +43,6 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UBaseWeaponTriggerGroupComponent* TriggerGroup;
+
+	void TriggerGoesOff();
 };
