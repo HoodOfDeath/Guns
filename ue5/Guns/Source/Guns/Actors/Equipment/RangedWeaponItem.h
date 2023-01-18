@@ -44,5 +44,8 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UBaseWeaponTriggerGroupComponent* TriggerGroup;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSubclassOf<UBaseWeaponTriggerGroupComponent> TriggerGroupClass;
+
 	void TriggerGoesOff();
 };

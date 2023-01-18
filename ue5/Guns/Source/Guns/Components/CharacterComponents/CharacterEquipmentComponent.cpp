@@ -11,7 +11,7 @@ UCharacterEquipmentComponent::UCharacterEquipmentComponent()
 {
 }
 
-const AEquipableItem* UCharacterEquipmentComponent::GetCurrentEquippedItem() const
+AEquipableItem* UCharacterEquipmentComponent::GetCurrentEquippedItem() const
 {
 	return CurrentEquippedItem.Get();
 }

@@ -16,7 +16,7 @@ class GUNS_API UCharacterEquipmentComponent : public UActorComponent
 public:
 	UCharacterEquipmentComponent();
 
-	const AEquipableItem* GetCurrentEquippedItem() const;
+	AEquipableItem* GetCurrentEquippedItem() const;
 
 protected:
 	TWeakObjectPtr<AEquipableItem> CurrentEquippedItem;

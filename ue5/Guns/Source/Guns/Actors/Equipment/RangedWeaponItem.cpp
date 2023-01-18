@@ -16,21 +16,23 @@ ARangedWeaponItem::ARangedWeaponItem()
 	WeaponBarrel->SetupAttachment(WeaponMesh);
 
 	WeaponFeed = CreateDefaultSubobject<UBaseWeaponFeedComponent>("WeaponFeed");
-
-	TriggerGroup = CreateDefaultSubobject<UBaseWeaponTriggerGroupComponent>("TriggerGroup");
+	
 }
 
 void ARangedWeaponItem::BeginPlay()
 {
 	Super::BeginPlay();
 
+	checkf(TriggerGroupClass.Get(), TEXT("ARangedWeaponItem::BeginPlay TriggerGroupClass have not been set"))
+	
+	TriggerGroup = NewObject<UBaseWeaponTriggerGroupComponent>(this, TriggerGroupClass, FName("TriggerGroup"));
+	TriggerGroup->RegisterComponent();
+
 	TriggerGroup->OnTriggerGoesOff.AddUObject(this, &ARangedWeaponItem::TriggerGoesOff);
 }
 
 void ARangedWeaponItem::BeginDestroy()
 {
-	TriggerGroup->OnTriggerGoesOff.RemoveAll(this);
-	
 	Super::BeginDestroy();
 }
 

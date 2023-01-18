@@ -4,7 +4,14 @@
 #include "Components/WeaponsComponents/BaseWeaponTriggerGroupComponent.h"
 
 UBaseWeaponTriggerGroupComponent::UBaseWeaponTriggerGroupComponent()
+{	
+}
+
+void UBaseWeaponTriggerGroupComponent::BeginPlay()
 {
+	Super::BeginPlay();
+
+	FireDelay = 60 / RateOfFire;
 }
 
 void UBaseWeaponTriggerGroupComponent::StartFire()

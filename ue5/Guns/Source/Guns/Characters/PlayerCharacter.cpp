@@ -85,5 +85,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAxis("LookUpAtRate", this, &APlayerCharacter::LookUpAtRate);
 
 	PlayerInputComponent->BindAction("Jump",IE_Pressed, this, &APlayerCharacter::Jump);
+	PlayerInputComponent->BindAction("PrimaryAction",IE_Pressed, this, &APlayerCharacter::StartFire);
+	PlayerInputComponent->BindAction("PrimaryAction",IE_Released, this, &APlayerCharacter::StopFire);
 	
 }

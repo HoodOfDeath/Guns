@@ -3,6 +3,7 @@
 
 #include "Characters/GBaseCharacter.h"
 
+#include "Actors/Equipment/RangedWeaponItem.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/CharacterComponents/CharacterEquipmentComponent.h"
 
@@ -20,10 +21,14 @@ USkeletalMeshComponent* AGBaseCharacter::GetMeshForItemAttachment() const
 
 void AGBaseCharacter::StartFire()
 {
+	ARangedWeaponItem* Weapon = StaticCast<ARangedWeaponItem*>(CharacterEquipmentComponent->GetCurrentEquippedItem());
+	Weapon->StartFire();
 }
 
 void AGBaseCharacter::StopFire()
 {
+	ARangedWeaponItem* Weapon = StaticCast<ARangedWeaponItem*>(CharacterEquipmentComponent->GetCurrentEquippedItem());
+	Weapon->StopFire();
 }
 
 void AGBaseCharacter::StartAiming()

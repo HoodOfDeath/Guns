@@ -17,9 +17,17 @@ class GUNS_API UBaseWeaponTriggerGroupComponent : public UActorComponent
 public:
 	UBaseWeaponTriggerGroupComponent();
 
+	virtual void BeginPlay() override;
+
 	virtual void StartFire();
 	virtual void StopFire();
 
 	FOnTriggerGoesOff OnTriggerGoesOff;
+
+protected:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ToolTip="In rounds per minute"))
+	float RateOfFire = 500;
+
+	float FireDelay;
 	
 };
