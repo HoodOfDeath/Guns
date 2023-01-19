@@ -22,3 +22,7 @@ Guns is a FPS project with modular, component-based weapon system made with UE5.
 1. [ ] Magazine
 2. [ ] Single load (as pump shotgun or lever action rifle)
 3. [ ] Overheating/cooling (sci-fi weapon)
+
+4) Spread system
+1. [ ] Random
+2. [ ] Pattern
