@@ -22,8 +22,6 @@ void UFullAutoTriggerGroup::StartFire()
 void UFullAutoTriggerGroup::StopFire()
 {
 	bIsFiring = false;
-	
-	Super::StopFire();
 }
 
 void UFullAutoTriggerGroup::TriggerGoesOff()
