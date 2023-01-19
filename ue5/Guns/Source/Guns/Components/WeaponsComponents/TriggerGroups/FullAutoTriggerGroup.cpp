@@ -9,12 +9,12 @@ UFullAutoTriggerGroup::UFullAutoTriggerGroup()
 
 void UFullAutoTriggerGroup::StartFire()
 {
+	bIsFiring = true;
+	
 	if (GetWorld()->GetTimerManager().IsTimerActive(ShotDelayTimer))
 	{
 		return;
 	}
-	
-	bIsFiring = true;
 	
 	TriggerGoesOff();
 }
@@ -37,7 +37,7 @@ void UFullAutoTriggerGroup::TriggerGoesOff()
 	}
 
 #if WITH_EDITOR
-	FireDelay = 60 / RateOfFire;
+	FireDelay = 60.0f / RateOfFire;
 #endif
 
 	GetWorld()->GetTimerManager().SetTimer(ShotDelayTimer, this, &UFullAutoTriggerGroup::TriggerGoesOff,FireDelay, false);

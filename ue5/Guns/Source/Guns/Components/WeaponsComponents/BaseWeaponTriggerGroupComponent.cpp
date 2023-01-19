@@ -11,7 +11,7 @@ void UBaseWeaponTriggerGroupComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	FireDelay = 60 / RateOfFire;
+	FireDelay = 60.0f / RateOfFire;
 }
 
 void UBaseWeaponTriggerGroupComponent::StartFire()

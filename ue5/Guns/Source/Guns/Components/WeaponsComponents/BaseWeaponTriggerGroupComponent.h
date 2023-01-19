@@ -9,7 +9,7 @@
 
 DECLARE_MULTICAST_DELEGATE(FOnTriggerGoesOff)
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( Blueprintable, BlueprintType, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class GUNS_API UBaseWeaponTriggerGroupComponent : public UActorComponent
 {
 	GENERATED_BODY()
@@ -26,7 +26,7 @@ public:
 
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta=(ToolTip="In rounds per minute"))
-	float RateOfFire = 500;
+	int32 RateOfFire = 500;
 
 	float FireDelay;
 	
