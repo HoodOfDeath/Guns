@@ -38,6 +38,12 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UBaseWeaponBarrelComponent* WeaponBarrel;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSubclassOf<UBaseWeaponBarrelComponent> WeaponBarrelClass;
+
+	UPROPERTY(EditAnywhere, meta=(MakeEditWidget = true))
+	FTransform BarrelSpawnTransform;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UBaseWeaponFeedComponent* WeaponFeed;
 

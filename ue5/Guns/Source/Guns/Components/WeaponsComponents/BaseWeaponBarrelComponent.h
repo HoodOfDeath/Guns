@@ -7,7 +7,7 @@
 #include "BaseWeaponBarrelComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(BlueprintType, Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class GUNS_API UBaseWeaponBarrelComponent : public USceneComponent
 {
 	GENERATED_BODY()
