@@ -5,6 +5,7 @@
 
 #include "Actors/Equipment/RangedWeaponItem.h"
 #include "Components/CapsuleComponent.h"
+#include "Components/ActorComponents/HealthComponent.h"
 #include "Components/CharacterComponents/CharacterEquipmentComponent.h"
 
 AGBaseCharacter::AGBaseCharacter()
@@ -12,6 +13,20 @@ AGBaseCharacter::AGBaseCharacter()
 	GetCapsuleComponent()->InitCapsuleSize(55.f, 96.0f);
 
 	CharacterEquipmentComponent = CreateDefaultSubobject<UCharacterEquipmentComponent>(TEXT("CharacterEquipment"));
+	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
+}
+
+void AGBaseCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+	HealthComponent->OnDeathEvent.AddLambda([]()
+	{
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(1, 5.0f, FColor::Red, FString("Ughhh... I'm dying"));
+		}
+	});
 }
 
 USkeletalMeshComponent* AGBaseCharacter::GetMeshForItemAttachment() const

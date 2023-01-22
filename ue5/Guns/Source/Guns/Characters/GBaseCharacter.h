@@ -16,7 +16,7 @@ class GUNS_API AGBaseCharacter : public ACharacter
 public:
 	AGBaseCharacter();
 
-	const UCharacterEquipmentComponent* GetCharacterEquipmentComponent() const;
+	virtual void BeginPlay() override;
 
 	virtual USkeletalMeshComponent* GetMeshForItemAttachment() const;
 	
@@ -38,5 +38,8 @@ public:
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UCharacterEquipmentComponent* CharacterEquipmentComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class UHealthComponent* HealthComponent;
 	
 };
