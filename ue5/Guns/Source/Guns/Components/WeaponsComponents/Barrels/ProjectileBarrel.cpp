@@ -15,4 +15,10 @@ void UProjectileBarrel::Shot(FVector ShotStart, FVector ShotDirection)
 
 	AGBaseProjectile* NewProjectile = GetWorld()->SpawnActor<AGBaseProjectile>(ProjectileClass, ShotStart, ShotDirection.Rotation());
 	NewProjectile->SetLifeSpan(5.0f);
+	NewProjectile->OnProjectileHit.AddDynamic(this, &UProjectileBarrel::ProcessProjectileHit);
+}
+
+void UProjectileBarrel::ProcessProjectileHit(const FHitResult& HitResult, const FVector& Direction)
+{
+	ProcessHit(HitResult, Direction);
 }

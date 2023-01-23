@@ -13,6 +13,11 @@ class GUNS_API AGBaseProjectile : public AActor
 	
 public:	
 	AGBaseProjectile();
+	
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnProjectileHit, const FHitResult&, Hit, const FVector&, Direction);
+	
+	UPROPERTY(BlueprintAssignable)
+	FOnProjectileHit OnProjectileHit; 
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")

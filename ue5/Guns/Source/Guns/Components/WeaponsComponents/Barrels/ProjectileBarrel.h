@@ -22,5 +22,8 @@ public:
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<class AGBaseProjectile> ProjectileClass;
+
+	UFUNCTION()
+	void ProcessProjectileHit(const FHitResult& HitResult, const FVector& Direction);
 	
 };

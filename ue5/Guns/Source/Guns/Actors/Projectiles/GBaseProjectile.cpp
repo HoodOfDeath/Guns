@@ -27,5 +27,10 @@ void AGBaseProjectile::BeginPlay()
 
 void AGBaseProjectile::OnCollisionHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Projectile Hit %s"), *(OtherActor->GetName()));
+	if (OnProjectileHit.IsBound())
+	{
+		OnProjectileHit.Broadcast(Hit, ProjectileMovementComponent->Velocity.GetSafeNormal());
+	}
+	
+	Destroy();
 }

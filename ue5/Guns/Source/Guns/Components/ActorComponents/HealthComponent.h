@@ -29,6 +29,7 @@ protected:
 	float MaxHealth = 100.0f;
 
 private:
+	UFUNCTION()
 	void OnHealthChanged(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
 
 	float CurrentHealth = 0.0f;

@@ -16,5 +16,15 @@ public:
 	UBaseWeaponBarrelComponent();
 
 	virtual void Shot(FVector ShotStart, FVector ShotDirection);
+
+protected:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (UIMin = 0.0f, ClampMin = 0.0f))
+	float DamageAmount = 10.0f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSubclassOf<UDamageType> DamageTypeClass;
+
+	void ProcessHit(const FHitResult& HitResult, const FVector& Direction);
 	
+	AController* GetController() const;
 };
