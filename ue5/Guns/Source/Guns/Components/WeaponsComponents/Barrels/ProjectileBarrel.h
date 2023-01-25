@@ -17,7 +17,7 @@ class GUNS_API UProjectileBarrel : public UBaseWeaponBarrelComponent
 public:
 	UProjectileBarrel();
 	
-	virtual void Shot(FVector ShotStart, FVector ShotDirection) override;
+	virtual void Shoot(FVector ShotStart, FVector ShotDirection) override;
 
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)

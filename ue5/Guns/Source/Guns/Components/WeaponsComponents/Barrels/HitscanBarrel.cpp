@@ -9,7 +9,7 @@ UHitscanBarrel::UHitscanBarrel()
 {
 }
 
-void UHitscanBarrel::Shot(FVector ShotStart, FVector ShotDirection)
+void UHitscanBarrel::Shoot(FVector ShotStart, FVector ShotDirection)
 {
 	FHitResult HitResult;
 	FVector ShotEnd = ShotStart + (ShotDirection * ShotRange);

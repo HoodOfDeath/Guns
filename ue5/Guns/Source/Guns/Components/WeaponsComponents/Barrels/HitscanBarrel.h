@@ -17,7 +17,7 @@ class GUNS_API UHitscanBarrel : public UBaseWeaponBarrelComponent
 public:
 	UHitscanBarrel();
 
-	virtual void Shot(FVector ShotStart, FVector ShotDirection) override;
+	virtual void Shoot(FVector ShotStart, FVector ShotDirection) override;
 
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)

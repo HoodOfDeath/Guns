@@ -72,6 +72,6 @@ void ARangedWeaponItem::TriggerGoesOff()
 
 	FVector ShotStartPosition = WeaponBarrel->GetComponentLocation();
 	FVector ShotDirection = WeaponBarrel->GetComponentRotation().Vector();
-	WeaponBarrel->Shot(ShotStartPosition, ShotDirection);
+	WeaponBarrel->Shoot(ShotStartPosition, ShotDirection);
 	WeaponFeed->ConsumeAmmo();
 }

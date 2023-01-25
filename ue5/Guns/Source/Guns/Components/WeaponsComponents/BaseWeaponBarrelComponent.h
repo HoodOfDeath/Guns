@@ -15,7 +15,7 @@ class GUNS_API UBaseWeaponBarrelComponent : public USceneComponent
 public:
 	UBaseWeaponBarrelComponent();
 
-	virtual void Shot(FVector ShotStart, FVector ShotDirection);
+	virtual void Shoot(FVector ShotStart, FVector ShotDirection);
 
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (UIMin = 0.0f, ClampMin = 0.0f))

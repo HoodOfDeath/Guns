@@ -9,7 +9,7 @@ UProjectileBarrel::UProjectileBarrel()
 {
 }
 
-void UProjectileBarrel::Shot(FVector ShotStart, FVector ShotDirection)
+void UProjectileBarrel::Shoot(FVector ShotStart, FVector ShotDirection)
 {
 	checkf(ProjectileClass.Get(), TEXT("UProjectileBarrel::Shot Projectile class is invalid"))
 
