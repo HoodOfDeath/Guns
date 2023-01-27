@@ -56,4 +56,6 @@ void AGBaseCharacter::StopAiming()
 
 void AGBaseCharacter::Reload()
 {
+	ARangedWeaponItem* Weapon = StaticCast<ARangedWeaponItem*>(CharacterEquipmentComponent->GetCurrentEquippedItem());
+	Weapon->Reload();
 }

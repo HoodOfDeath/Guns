@@ -87,5 +87,6 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction("Jump",IE_Pressed, this, &APlayerCharacter::Jump);
 	PlayerInputComponent->BindAction("PrimaryAction",IE_Pressed, this, &APlayerCharacter::StartFire);
 	PlayerInputComponent->BindAction("PrimaryAction",IE_Released, this, &APlayerCharacter::StopFire);
+	PlayerInputComponent->BindAction("Reload",IE_Pressed, this, &APlayerCharacter::Reload);
 	
 }

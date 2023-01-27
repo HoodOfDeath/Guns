@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Enums/AmmoType.h"
 #include "BaseWeaponFeedComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( Blueprintable, BlueprintType, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class GUNS_API UBaseWeaponFeedComponent : public UActorComponent
 {
 	GENERATED_BODY()
@@ -15,7 +16,21 @@ class GUNS_API UBaseWeaponFeedComponent : public UActorComponent
 public:
 	UBaseWeaponFeedComponent();
 
-	virtual bool CanShoot();
+	virtual bool CanShoot() { return true; }
 
-	virtual void ConsumeAmmo();
+	virtual void ConsumeAmmo() {};
+
+	virtual void Reload() {};
+
+protected:
+	EAmmoType GetAmmoType() const { return AmmoType; }
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	int32 MaxMagazineAmmo = 30;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	int32 AmmoPerShot = 1;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	EAmmoType AmmoType;
 };

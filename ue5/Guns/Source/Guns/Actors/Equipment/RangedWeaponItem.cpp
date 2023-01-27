@@ -11,9 +11,6 @@ ARangedWeaponItem::ARangedWeaponItem()
 {
 	WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("WeaponMesh"));
 	WeaponMesh->SetupAttachment(RootComponent);
-
-	WeaponFeed = CreateDefaultSubobject<UBaseWeaponFeedComponent>("WeaponFeed");
-	
 }
 
 void ARangedWeaponItem::BeginPlay()
@@ -26,6 +23,11 @@ void ARangedWeaponItem::BeginPlay()
 	TriggerGroup->RegisterComponent();
 
 	TriggerGroup->OnTriggerGoesOff.AddUObject(this, &ARangedWeaponItem::TriggerGoesOff);
+
+	checkf(WeaponFeedClass.Get(), TEXT("ARangedWeaponItem::BeginPlay WeaponFeedClass have not been set"))
+	
+	WeaponFeed = NewObject<UBaseWeaponFeedComponent>(this, WeaponFeedClass, FName("WeaponFeed"));
+	WeaponFeed->RegisterComponent();
 
 	checkf(WeaponBarrelClass.Get(), TEXT("ARangedWeaponItem::BeginPlay TriggerGroupClass have not been set"))
 	
@@ -61,6 +63,7 @@ void ARangedWeaponItem::StopAiming()
 
 void ARangedWeaponItem::Reload()
 {
+	WeaponFeed->Reload();
 }
 
 void ARangedWeaponItem::TriggerGoesOff()

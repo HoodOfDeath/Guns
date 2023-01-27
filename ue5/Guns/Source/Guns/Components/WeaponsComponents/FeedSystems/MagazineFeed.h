@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Components/WeaponsComponents/BaseWeaponFeedComponent.h"
-#include "Enums/AmmoType.h"
 #include "MagazineFeed.generated.h"
 
 /**
@@ -24,18 +23,11 @@ public:
 
 	virtual void ConsumeAmmo() override;
 
-	EAmmoType GetAmmoType() const { return AmmoType; }
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	int32 MaxMagazineAmmo;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	int32 AmmoPerShot;
+	virtual void Reload() override;
 
 private:
 	FTimerHandle ReloadTimer;
 
 	int32 CurrentAmmo;
 
-	EAmmoType AmmoType;
 };

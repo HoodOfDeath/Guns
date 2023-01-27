@@ -26,3 +26,5 @@ Guns is a FPS project with modular, component-based weapon system made with UE5.
 4) Spread system
 1. [ ] Random
 2. [ ] Pattern
+
+5) Made magazine system in realistic way [doc](docs/GameDesign/RealisticMagazines.md)
