@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Components/CharacterComponents/CharacterEquipmentComponent.h"
+#include "Characters/Components/CharacterEquipmentComponent.h"
 
 #include "Actors/Equipment/EquipableItem.h"
 #include "Characters/GBaseCharacter.h"

@@ -3,10 +3,10 @@
 
 #include "Characters/GBaseCharacter.h"
 
-#include "Actors/Equipment/RangedWeaponItem.h"
+#include "Weapon/RangedWeaponItem.h"
 #include "Components/CapsuleComponent.h"
-#include "Components/ActorComponents/HealthComponent.h"
-#include "Components/CharacterComponents/CharacterEquipmentComponent.h"
+#include "Components/HealthComponent.h"
+#include "Characters/Components/CharacterEquipmentComponent.h"
 
 AGBaseCharacter::AGBaseCharacter()
 {

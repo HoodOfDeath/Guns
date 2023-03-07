@@ -34,7 +34,6 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	USkeletalMeshComponent* WeaponMesh;
 	
-	//TODO: Add TSubclassOf for barrel,feed,trigger to spawn needed subclass
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UBaseWeaponBarrelComponent* WeaponBarrel;
 

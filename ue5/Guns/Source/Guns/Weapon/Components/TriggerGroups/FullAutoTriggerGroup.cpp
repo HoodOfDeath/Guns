@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Components/WeaponsComponents/TriggerGroups/FullAutoTriggerGroup.h"
+#include "Weapon/Components/TriggerGroups/FullAutoTriggerGroup.h"
 
 UFullAutoTriggerGroup::UFullAutoTriggerGroup()
 {

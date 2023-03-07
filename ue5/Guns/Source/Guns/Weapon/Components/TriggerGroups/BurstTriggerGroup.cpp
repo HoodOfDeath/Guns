@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Components/WeaponsComponents/TriggerGroups/BurstTriggerGroup.h"
+#include "Weapon/Components/TriggerGroups/BurstTriggerGroup.h"
 
 UBurstTriggerGroup::UBurstTriggerGroup()
 {

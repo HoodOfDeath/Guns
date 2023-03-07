@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Components/WeaponsComponents/Barrels/ProjectileBarrel.h"
+#include "Weapon/Components/Barrels/ProjectileBarrel.h"
 
 #include "Actors/Projectiles/GBaseProjectile.h"
 

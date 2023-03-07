@@ -3,27 +3,27 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/WeaponsComponents/BaseWeaponTriggerGroupComponent.h"
-#include "FullAutoTriggerGroup.generated.h"
+#include "Weapon/Components/BaseWeaponTriggerGroupComponent.h"
+#include "SemiAutoTriggerGroup.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class GUNS_API UFullAutoTriggerGroup : public UBaseWeaponTriggerGroupComponent
+class GUNS_API USemiAutoTriggerGroup : public UBaseWeaponTriggerGroupComponent
 {
 	GENERATED_BODY()
 
 public:
-	UFullAutoTriggerGroup();
+
+	USemiAutoTriggerGroup();
 
 	virtual void StartFire() override;
 	virtual void StopFire() override;
 
 private:
-	void TriggerGoesOff();
-	
-	bool bIsFiring = false;
+
+	bool bIsReset = true;
 
 	FTimerHandle ShotDelayTimer;
 	

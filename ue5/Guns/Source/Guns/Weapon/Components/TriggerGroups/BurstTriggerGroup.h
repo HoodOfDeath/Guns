@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/WeaponsComponents/BaseWeaponTriggerGroupComponent.h"
+#include "Weapon/Components/BaseWeaponTriggerGroupComponent.h"
 #include "BurstTriggerGroup.generated.h"
 
 /**

@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "Enums/AmmoType.h"
+#include "Enums/EAmmoType.h"
 #include "BaseWeaponFeedComponent.generated.h"
 
 

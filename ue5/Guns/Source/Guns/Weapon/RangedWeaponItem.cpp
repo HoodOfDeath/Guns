@@ -1,11 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Actors/Equipment/RangedWeaponItem.h"
+#include "Weapon/RangedWeaponItem.h"
 
-#include "Components/WeaponsComponents/BaseWeaponBarrelComponent.h"
-#include "Components/WeaponsComponents/BaseWeaponFeedComponent.h"
-#include "Components/WeaponsComponents/BaseWeaponTriggerGroupComponent.h"
+#include "Weapon/Components/BaseWeaponBarrelComponent.h"
+#include "Weapon/Components/BaseWeaponFeedComponent.h"
+#include "Weapon/Components/BaseWeaponTriggerGroupComponent.h"
 
 ARangedWeaponItem::ARangedWeaponItem()
 {

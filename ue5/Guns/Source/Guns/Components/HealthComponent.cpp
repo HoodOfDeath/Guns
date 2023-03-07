@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Components/ActorComponents/HealthComponent.h"
+#include "Components/HealthComponent.h"
 
 UHealthComponent::UHealthComponent()
 {
