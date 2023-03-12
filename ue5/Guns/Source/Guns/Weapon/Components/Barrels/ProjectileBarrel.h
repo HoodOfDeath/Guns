@@ -6,9 +6,8 @@
 #include "Weapon/Components/BaseWeaponBarrelComponent.h"
 #include "ProjectileBarrel.generated.h"
 
-/**
- * 
- */
+class AGBaseProjectile;
+
 UCLASS()
 class GUNS_API UProjectileBarrel : public UBaseWeaponBarrelComponent
 {
@@ -19,9 +18,11 @@ public:
 	
 	virtual void Shoot(FVector ShotStart, FVector ShotDirection) override;
 
+	void InjectSettings(TSubclassOf<AGBaseProjectile> InProjectileClass);
+
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TSubclassOf<class AGBaseProjectile> ProjectileClass;
+	TSubclassOf<AGBaseProjectile> ProjectileClass;
 
 	UFUNCTION()
 	void ProcessProjectileHit(const FHitResult& HitResult, const FVector& Direction);

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Actors/Equipment/EquipableItem.h"
+#include "Systems/IWeaponConfigProvider.h"
 #include "RangedWeaponItem.generated.h"
 
 class USkeletalMeshComponent;
@@ -31,6 +32,9 @@ public:
 	void Reload();
 
 protected:
+	UPROPERTY(EditAnywhere)
+	TScriptInterface<IWeaponConfigProvider> WeaponConfigProvider;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	USkeletalMeshComponent* WeaponMesh;
 	

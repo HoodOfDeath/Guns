@@ -17,6 +17,8 @@ public:
 
 	virtual void Shoot(FVector ShotStart, FVector ShotDirection);
 
+	void InjectSettings(float InDamageAmount, TSubclassOf<UDamageType> InDamageTypeClass);
+
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (UIMin = 0.0f, ClampMin = 0.0f))
 	float DamageAmount = 10.0f;

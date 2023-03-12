@@ -22,6 +22,8 @@ public:
 	virtual void StartFire();
 	virtual void StopFire();
 
+	void InjectSettings(int32 InRateOfFire);
+
 	FOnTriggerGoesOff OnTriggerGoesOff;
 
 protected:

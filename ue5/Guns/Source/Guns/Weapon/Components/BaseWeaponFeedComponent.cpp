@@ -6,3 +6,10 @@
 UBaseWeaponFeedComponent::UBaseWeaponFeedComponent()
 {
 }
+
+void UBaseWeaponFeedComponent::InjectSettings(int32 InMaxMagazineAmmo, int32 InAmmoPerShot, EAmmoType InAmmoType)
+{
+	MaxMagazineAmmo = InMaxMagazineAmmo;
+	AmmoPerShot = InAmmoPerShot;
+	AmmoType = InAmmoType;
+}

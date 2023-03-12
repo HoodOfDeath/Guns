@@ -18,6 +18,11 @@ void UProjectileBarrel::Shoot(FVector ShotStart, FVector ShotDirection)
 	NewProjectile->OnProjectileHit.AddDynamic(this, &UProjectileBarrel::ProcessProjectileHit);
 }
 
+void UProjectileBarrel::InjectSettings(TSubclassOf<AGBaseProjectile> InProjectileClass)
+{
+	ProjectileClass = InProjectileClass;
+}
+
 void UProjectileBarrel::ProcessProjectileHit(const FHitResult& HitResult, const FVector& Direction)
 {
 	ProcessHit(HitResult, Direction);
