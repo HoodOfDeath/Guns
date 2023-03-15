@@ -32,10 +32,21 @@ void UMagazineFeed::ConsumeAmmo()
 
 void UMagazineFeed::Reload()
 {
+	if(GetWorld()->GetTimerManager().IsTimerActive(ReloadTimer))
+	{
+		return;
+	}
+	
 	//TODO Start animation an get its duration
 	const float ReloadTime = 3.0f; 
 	
 	GetWorld()->GetTimerManager().SetTimer(ReloadTimer, [&](){ CurrentAmmo = MaxMagazineAmmo;}, ReloadTime, false);
 
 	CurrentAmmo = 0;
+}
+
+void UMagazineFeed::InjectSettings(int32 InMaxMagazineAmmo, int32 InAmmoPerShot, EAmmoType InAmmoType)
+{
+	CurrentAmmo = InMaxMagazineAmmo;
+	Super::InjectSettings(InMaxMagazineAmmo, InAmmoPerShot, InAmmoType);
 }

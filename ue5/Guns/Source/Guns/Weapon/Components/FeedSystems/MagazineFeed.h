@@ -25,6 +25,8 @@ public:
 
 	virtual void Reload() override;
 
+	virtual void InjectSettings(int32 InMaxMagazineAmmo, int32 InAmmoPerShot, EAmmoType InAmmoType) override;
+
 private:
 	FTimerHandle ReloadTimer;
 

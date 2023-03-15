@@ -22,7 +22,7 @@ public:
 
 	virtual void Reload() {};
 
-	void InjectSettings(int32 InMaxMagazineAmmo, int32 InAmmoPerShot, EAmmoType InAmmoType);
+	virtual void InjectSettings(int32 InMaxMagazineAmmo, int32 InAmmoPerShot, EAmmoType InAmmoType);
 
 protected:
 	EAmmoType GetAmmoType() const { return AmmoType; }
