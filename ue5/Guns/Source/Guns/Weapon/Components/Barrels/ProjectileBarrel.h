@@ -18,13 +18,31 @@ public:
 	
 	virtual void Shoot(FVector ShotStart, FVector ShotDirection) override;
 
-	void InjectSettings(TSubclassOf<AGBaseProjectile> InProjectileClass);
+	void InjectSettings(TSubclassOf<AGBaseProjectile> InProjectileClass, int32 InProjectilePoolSize, float InProjectileLifespan);
 
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<AGBaseProjectile> ProjectileClass;
 
 	UFUNCTION()
-	void ProcessProjectileHit(const FHitResult& HitResult, const FVector& Direction);
+	void ProcessProjectileHit(AGBaseProjectile* Projectile, const FHitResult& HitResult, const FVector& Direction);
+
+	UFUNCTION()
+	void ReturnProjectileToPool(AGBaseProjectile* Projectile);
+
+private:
+	const FVector POOL_LOCATION {0,0,-1000000};
+
+	int32 ProjectilePoolSize = 30;
+
+	float ProjectileLifespan = 5.0f;
+
+	int32 CurrentPoolIndex = 0;
+	
+	TArray<AGBaseProjectile*> ProjectilePool;
+	
+	void InitProjectilePool();
+	
+	AGBaseProjectile* GetNextAvailableProjectile();
 	
 };

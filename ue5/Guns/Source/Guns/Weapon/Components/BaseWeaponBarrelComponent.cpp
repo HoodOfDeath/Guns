@@ -28,13 +28,19 @@ void UBaseWeaponBarrelComponent::ProcessHit(const FHitResult& HitResult, const F
 	HitActor->TakeDamage(DamageAmount, DamageEvent, GetController(), GetOwner());
 }
 
+APawn* UBaseWeaponBarrelComponent::GetOwningPawn() const
+{
+	APawn* OwningPawn = Cast<APawn>(GetOwner()->GetOwner());
+	return OwningPawn;
+}
+
 AController* UBaseWeaponBarrelComponent::GetController() const
 {
 	AController* Controller = nullptr;
-	APawn* PawnOwner = Cast<APawn>(GetOwner()->GetOwner());
-	if (IsValid(PawnOwner))
+	APawn* OwningPawn = GetOwningPawn();
+	if (IsValid(OwningPawn))
 	{
-		Controller = PawnOwner->GetController();
+		Controller = OwningPawn->GetController();
 	}
 	return Controller;
 }

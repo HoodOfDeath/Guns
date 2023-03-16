@@ -27,6 +27,7 @@ protected:
 	TSubclassOf<UDamageType> DamageTypeClass;
 
 	void ProcessHit(const FHitResult& HitResult, const FVector& Direction);
-	
+	APawn* GetOwningPawn() const;
+
 	AController* GetController() const;
 };

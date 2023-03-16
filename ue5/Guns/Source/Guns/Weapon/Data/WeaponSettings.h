@@ -35,17 +35,23 @@ struct FWeaponSettings
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Barrel")
 	TSubclassOf<AGBaseProjectile> ProjectileClass;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Barrel", meta = (UIMin = 0, ClampMin = 0))
+	int32 ProjectilePoolSize = 30;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Barrel", meta = (UIMin = 0.0f, ClampMin = 0.0f))
+	float ProjectileLifespan = 5.0f;
+
 	// Trigger settings
 	
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Trigger", meta=(ToolTip="In rounds per minute"))
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Trigger", meta=(ToolTip="In rounds per minute", UIMin = 0, ClampMin = 0))
 	int32 RateOfFire = 451;
 
 	// Feed settings
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Feed")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Feed", meta = (UIMin = 0, ClampMin = 0))
 	int32 MaxMagazineAmmo = 30;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Feed")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Feed", meta = (UIMin = 0, ClampMin = 0))
 	int32 AmmoPerShot = 1;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Feed")

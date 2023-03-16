@@ -11,7 +11,7 @@
 ARangedWeaponItem::ARangedWeaponItem()
 {
 	WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("WeaponMesh"));
-	WeaponMesh->SetupAttachment(RootComponent);
+	SetRootComponent(WeaponMesh);
 }
 
 void ARangedWeaponItem::BeginPlay()
@@ -45,7 +45,7 @@ void ARangedWeaponItem::BeginPlay()
 
 		if (UProjectileBarrel* ProjectileBarrel = Cast<UProjectileBarrel>(WeaponBarrel))
 		{
-			ProjectileBarrel->InjectSettings(Settings->ProjectileClass);
+			ProjectileBarrel->InjectSettings(Settings->ProjectileClass, Settings->ProjectilePoolSize, Settings->ProjectileLifespan);
 		}
 
 		WeaponBarrel->InjectSettings(Settings->DamageAmount, Settings->DamageTypeClass);

@@ -13,11 +13,25 @@ class GUNS_API AGBaseProjectile : public AActor
 	
 public:	
 	AGBaseProjectile();
-	
-	DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnProjectileHit, const FHitResult&, Hit, const FVector&, Direction);
+
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnProjectileHit, AGBaseProjectile*, Projectile, const FHitResult&, Hit, const FVector&, Direction);
 	
 	UPROPERTY(BlueprintAssignable)
-	FOnProjectileHit OnProjectileHit; 
+	FOnProjectileHit OnProjectileHit;
+	
+	DECLARE_DELEGATE_OneParam(FOnLifespanExpired, AGBaseProjectile* Projectile)
+	
+	FOnLifespanExpired OnLifespanExpired;
+
+	void Launch(FVector Direction);
+
+	void Activate(bool bInActive);
+
+	void SetDelayedExpiredCall(float Delay);
+
+	void ResetExpiredTimer();
+
+	bool IsActive() const { return bIsActive; }
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
@@ -31,4 +45,10 @@ protected:
 private:
 	UFUNCTION()
 	void OnCollisionHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+
+	float InitialSpeed;
+
+	bool bIsActive;
+
+	FTimerHandle ExpiredTimer;
 };

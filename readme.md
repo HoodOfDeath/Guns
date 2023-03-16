@@ -55,4 +55,4 @@ Guns is a FPS project with modular, component-based weapon system made with UE5.
 3. [ ] Auto turret
 4. [ ] Actual enemy (whole another task)
 
-10) Pool system for projectiles.
+10) Pool system for projectiles (done)

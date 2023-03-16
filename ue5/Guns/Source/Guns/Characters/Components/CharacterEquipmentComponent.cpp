@@ -33,9 +33,14 @@ void UCharacterEquipmentComponent::CreateLoadout()
 		return;
 	}
 
-	CurrentEquippedItem = GetWorld()->SpawnActor<AEquipableItem>(DefaultItemClass);
+	FActorSpawnParameters Parameters;
+	AGBaseCharacter* Owner = CachedBaseCharacter.Get();
+	Parameters.Instigator = Owner;
+	Parameters.Owner = Owner;	
+	
+	CurrentEquippedItem = GetWorld()->SpawnActor<AEquipableItem>(DefaultItemClass, Parameters);
+	
 	FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
 	CurrentEquippedItem->AttachToComponent(CachedBaseCharacter->GetMeshForItemAttachment(),AttachmentRules, FName(TEXT("GripPoint")));
-	CurrentEquippedItem->SetOwner(CachedBaseCharacter.Get());
 }
 
