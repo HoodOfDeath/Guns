@@ -12,6 +12,7 @@ Guns is a FPS project with modular, component-based weapon system made with UE5.
 1. [x] Semi auto
 2. [x] Burst
 3. [x] Auto
+4. [ ] Charging
 
 2) Registration type:
 1. [x] Hitscan
